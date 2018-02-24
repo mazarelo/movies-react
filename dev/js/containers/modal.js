@@ -5,6 +5,7 @@ const ModalWindow = props => {
   return props.serie !== null ? (
     <div className={"modal animated "+(props.showModal ? 'fadeIn': 'fadeOut')}>
       <div className={"modal-content animated "+(props.showModal? 'fadeInUp': 'fadeOutDown')}>
+        <div className="close-cross" onClick={()=> props.hideModal()}><i className="fa fa-times"></i></div>
         <div className="banner">
           <img src={props.serie.images.fanart}/>
           <div className="episodes-button" onClick={()=> props.showEpisodes()}>view episodes</div>
@@ -18,7 +19,6 @@ const ModalWindow = props => {
           ))}
           <p>{props.serie.synopsis}</p>
         </div>
-        <button className="close-button" onClick={()=> props.hideModal()}>close</button>
       </div> 
     </div>
   ) : null

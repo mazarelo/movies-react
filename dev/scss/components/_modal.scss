@@ -25,7 +25,17 @@
     max-width:500px;
     margin:0 auto;
     padding:10px;
-    
+    position: relative;
+
+    .close-cross{
+      positioN:absolute;
+      top:-30px;
+      right:0;
+      font-size:25px;
+      color:white;
+      cursor: pointer;
+    }
+
     .banner{
       max-height:300px;
       width:100%;
