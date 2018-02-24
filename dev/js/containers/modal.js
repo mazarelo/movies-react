@@ -1,13 +1,16 @@
 import React from 'react'
 import { closeModal } from '../actions'
+import EpisodeList from './episode-list'
 
 const ModalWindow = props => {
   return props.serie !== null ? (
     <div className={"modal animated "+(props.showModal ? 'fadeIn': 'fadeOut')}>
       <div className={"modal-content animated "+(props.showModal? 'fadeInUp': 'fadeOutDown')}>
-        <figure className="banner">
+        <div className="banner">
           <img src={props.serie.images.fanart}/>
-        </figure>
+          <div className="episodes-button" onClick={()=> props.showEpisodes()}>episodes</div>
+          <EpisodeList status={props.episodeShowStatus} episodes={props.serie.episodes}/>
+        </div>
         <h1>{props.serie.title}</h1>
         <date>{props.serie.year}</date>
         <div className="modal-content">

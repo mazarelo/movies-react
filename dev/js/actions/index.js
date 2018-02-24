@@ -7,6 +7,8 @@ export const ON_SERIE_CLICK = 'ON_SERIE_CLICK'
 export const SHOW_MODAL = 'SHOW_MODAL'
 export const HIDE_MODAL = 'HIDE_MODAL'
 export const LIST_PAGES = 'LIST_PAGES'
+export const SHOW_EPISODES = 'SHOW_EPISODES'
+export const HIDE_EPISODES = 'HIDE_EPISODES'
 
 export const selectSerie = (serie) =>{
   return { type: SERIE_SELECTED, payload: serie }
@@ -34,6 +36,14 @@ export function onSerieClick(serie){
       return dispatch(openModal());
     })
   }
+}
+
+export function showEpisodes(){
+  return { type: SHOW_EPISODES, payload: true }
+}
+
+export function hideEpisodes(){
+  return { type: HIDE_EPISODES, payload: false }
 }
 
 export function openModal(){

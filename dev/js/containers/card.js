@@ -12,7 +12,7 @@ const SimpleMediaCard = (props) => {
       <div className="content">
         <h3>{item.title}</h3>
       </div>
-      <div class="action-buttons">
+      <div className="action-buttons">
       </div>
     </div>
   );
