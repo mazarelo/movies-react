@@ -3,7 +3,9 @@
 @import './components/paginator';
 
 $primary: #006699;
-
+body, html{
+  font-family: 'Archivo Narrow', sans-serif;
+}
 h2 {
 	color: $primary;
 }
