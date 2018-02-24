@@ -16,7 +16,7 @@ const ModalWindow = props => {
           ))}
           <p>{props.serie.synopsis}</p>
         </div>
-        <button onClick={()=> props.hideModal()}>close</button>
+        <button className="close-button" onClick={()=> props.hideModal()}>close</button>
       </div> 
     </div>
   ) : null
