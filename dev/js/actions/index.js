@@ -14,8 +14,8 @@ export const selectSerie = (serie) =>{
 
 export function getPagination(){
   return function(dispatch){
-    SeriesApi.getPagination().then(response=>{
-      dispatch({ type: LIST_PAGES, payload: response.data })
+    return SeriesApi.getPagination().then(response=>{
+      return dispatch({ type: LIST_PAGES, payload: response.data })
     })
   }
 }
@@ -30,8 +30,8 @@ export function changePage(page){
 
 export function onSerieClick(serie){
   return function(dispatch){
-    dispatch(getSerieById(serie._id)).then(()=>{
-      dispatch(openModal());
+    return dispatch(getSerieById(serie._id)).then(()=>{
+      return dispatch(openModal());
     })
   }
 }
@@ -42,7 +42,7 @@ export function openModal(){
 
 export function closeModal(){
   return function(dispatch){
-    dispatch(new Promise( (resolve, reject) => resolve({ type: HIDE_MODAL, payload: false }))).then(()=>{
+    return dispatch(new Promise( (resolve, reject) => resolve({ type: HIDE_MODAL, payload: false }))).then(()=>{
       setTimeout(()=>{
         dispatch(selectSerie(null))
       }, 700)
@@ -52,8 +52,8 @@ export function closeModal(){
 
 export function loadSeries() {  
   return function(dispatch) {
-    SeriesApi.getSeries().then(series => {
-      dispatch(loadSeriesSuccess(series.data));
+    return SeriesApi.getSeries().then(series => {
+      return dispatch(loadSeriesSuccess(series.data));
     }).catch(error => {
       throw(error);
     });
@@ -62,8 +62,8 @@ export function loadSeries() {
 
 export function getSerieById(id) {  
   return function(dispatch) {
-    SeriesApi.getSerie(id).then(serie => {
-      dispatch(selectSerie(serie.data))
+    return SeriesApi.getSerie(id).then(serie => {
+      return dispatch(selectSerie(serie.data))
     }).catch(error => {
       throw(error);
     });
