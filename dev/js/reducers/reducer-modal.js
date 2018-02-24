@@ -11,7 +11,7 @@ export default function (state = {showModal: false, showEpisodes: false}, action
       return {...state, showModal: true }
     }
     case HIDE_MODAL:{
-      return {...state, showModal: false }
+      return {...state, showModal: false , showEpisodes: false}
     }
     case SHOW_EPISODES:{
       return {...state, showEpisodes: true }

@@ -8,7 +8,7 @@ const ModalWindow = props => {
       <div className={"modal-content animated "+(props.showModal? 'fadeInUp': 'fadeOutDown')}>
         <div className="banner">
           <img src={props.serie.images.fanart}/>
-          <div className="episodes-button" onClick={()=> props.showEpisodes()}>episodes</div>
+          <div className="episodes-button" onClick={()=> props.showEpisodes()}>view episodes</div>
           <EpisodeList status={props.episodeShowStatus} episodes={props.serie.episodes}/>
         </div>
         <h1>{props.serie.title}</h1>

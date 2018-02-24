@@ -6,7 +6,8 @@ Just messing around using react / redux
 ```
 npm install && webpack
 ```
-## Run project
+
+## Run project
 ```
 npm start 
 ```
