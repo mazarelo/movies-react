@@ -15,7 +15,7 @@ export const selectSerie = (serie) =>{
 }
 
 export function getPagination(){
-  return function(dispatch){
+  return dispatch =>{
     return SeriesApi.getPagination().then(response=>{
       return dispatch({ type: LIST_PAGES, payload: response.data })
     })
@@ -23,7 +23,7 @@ export function getPagination(){
 }
 
 export function changePage(page){
-  return function(dispatch){
+  return dispatch => {
     return SeriesApi.getPage(page).then(response=>{
       dispatch(loadSeriesSuccess(response.data))
     })
@@ -31,7 +31,7 @@ export function changePage(page){
 }
 
 export function onSerieClick(serie){
-  return function(dispatch){
+  return dispatch =>{
     return dispatch(getSerieById(serie._id)).then(()=>{
       return dispatch(openModal());
     })
@@ -51,8 +51,8 @@ export function openModal(){
 }
 
 export function closeModal(){
-  return function(dispatch){
-    return dispatch(new Promise( (resolve, reject) => resolve({ type: HIDE_MODAL, payload: false }))).then(()=>{
+  return dispatch =>{
+    return dispatch( new Promise( (resolve, reject) => resolve({ type: HIDE_MODAL, payload: false }))).then(()=>{
       setTimeout(()=>{
         return dispatch(selectSerie(null))
       }, 700)
@@ -61,7 +61,7 @@ export function closeModal(){
 }
 
 export function loadSeries() {  
-  return function(dispatch) {
+  return dispatch => {
     return SeriesApi.getSeries().then(series => {
       return dispatch(loadSeriesSuccess(series.data));
     }).catch(error => {
@@ -71,7 +71,7 @@ export function loadSeries() {
 }
 
 export function getSerieById(id) {  
-  return function(dispatch) {
+  return dispatch => {
     return SeriesApi.getSerie(id).then(serie => {
       return dispatch(selectSerie(serie.data))
     }).catch(error => {
