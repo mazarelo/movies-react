@@ -2,12 +2,11 @@
 
 Just messing around using react / redux
 
-# Install 
+## Install 
 ```
 npm install && webpack
 ```
-
-# Run project
+## Run project
 ```
 npm start 
 ```
