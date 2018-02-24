@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import SerieList from '../containers/serie-list';
 import ModalWindow from '../containers/modal';
-import {onSerieClick, closeModal, changePage, showEpisodes} from '../actions'
+import {onSerieClick, closeModal, changePage, showEpisodes, hideEpisodes} from '../actions'
 require('../../scss/style.scss');
 
 class App extends React.Component {
@@ -33,7 +33,8 @@ class App extends React.Component {
           showModal={this.props.modal.showModal} 
           hideModal={this.props.closeModal} 
           episodeShowStatus={this.props.modal.showEpisodes}
-          showEpisodes={this.props.showEpisodes}/>
+          showEpisodes={this.props.showEpisodes}
+          hideEpisodes={this.props.hideEpisodes}/>
     </div>
     );
   }
@@ -53,6 +54,7 @@ function mapDispatchToProps(dispatch) {
       closeModal,
       changePage,
       showEpisodes,
+      hideEpisodes,
     },
     dispatch,
   );

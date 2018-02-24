@@ -1,5 +1,4 @@
 import React from 'react'
-import { closeModal } from '../actions'
 import EpisodeList from './episode-list'
 
 const ModalWindow = props => {
@@ -9,7 +8,7 @@ const ModalWindow = props => {
         <div className="banner">
           <img src={props.serie.images.fanart}/>
           <div className="episodes-button" onClick={()=> props.showEpisodes()}>view episodes</div>
-          <EpisodeList status={props.episodeShowStatus} episodes={props.serie.episodes}/>
+          <EpisodeList status={props.episodeShowStatus} episodes={props.serie.episodes} hideEpisodes={props.hideEpisodes}/>
         </div>
         <h1>{props.serie.title}</h1>
         <date>{props.serie.year}</date>

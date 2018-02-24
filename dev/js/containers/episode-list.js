@@ -3,7 +3,7 @@ import React from 'react';
 const EpisodeList = props => {
   return props.episodes !== null ? (
     <div className={"episode-list animated "+(props.status ? 'slideInUp': 'slideOutDown')}>
-      <div className="close-button"><i className="fa fa-times"></i></div>
+      <div className="close-button" onClick={()=> props.hideEpisodes()}><i className="fa fa-times"></i></div>
       <ul>
         {props.episodes.map(episode => (
           <li>
