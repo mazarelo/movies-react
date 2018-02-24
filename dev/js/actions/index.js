@@ -22,7 +22,7 @@ export function getPagination(){
 
 export function changePage(page){
   return function(dispatch){
-    SeriesApi.getPage(page).then(response=>{
+    return SeriesApi.getPage(page).then(response=>{
       dispatch(loadSeriesSuccess(response.data))
     })
   }
@@ -44,7 +44,7 @@ export function closeModal(){
   return function(dispatch){
     return dispatch(new Promise( (resolve, reject) => resolve({ type: HIDE_MODAL, payload: false }))).then(()=>{
       setTimeout(()=>{
-        dispatch(selectSerie(null))
+        return dispatch(selectSerie(null))
       }, 700)
     })
   }
