@@ -8,12 +8,16 @@ import promise from 'redux-promise';
 import createLogger from 'redux-logger';
 import allReducers from './reducers';
 import App from './components/App';
+import {loadSeries, getPagination} from './actions'
 
 const logger = createLogger();
 const store = createStore(
     allReducers,
     applyMiddleware(thunk, promise, logger)
 );
+
+store.dispatch(loadSeries())
+store.dispatch(getPagination())
 
 ReactDOM.render(
     <Provider store={store}>

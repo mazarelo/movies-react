@@ -1,16 +1,57 @@
 import React from 'react';
-import UserList from '../containers/user-list';
-import UserDetails from '../containers/user-detail';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import SerieList from '../containers/serie-list';
+import ModalWindow from '../containers/modal';
+import {onSerieClick, closeModal, changePage} from '../actions'
 require('../../scss/style.scss');
 
-const App = () => (
-    <div>
-        <h2>User List</h2>
-        <UserList />
-        <hr />
-        <h2>User Details</h2>
-        <UserDetails />
-    </div>
-);
+class App extends React.Component {
+  componentDidMount() {
+    /*this.interval = setInterval(() => {
+      this.props.refreshGridCells();
+    }, 100);
+    */
+  }
 
-export default App;
+  componentWillUnmount() {
+    // clearInterval(this.interval);
+  }
+
+  render() {
+    console.log('PROPS:', this.props)
+    return (
+      <div>
+        <SerieList 
+          series={this.props.series} 
+          onClick={this.props.onSerieClick}
+          pages={this.props.pages}
+          goToPage={this.props.changePage}
+           />
+        <ModalWindow serie={this.props.activeSerie} showModal={this.props.modal.showModal} hideModal={this.props.closeModal}/>
+    </div>
+    );
+  }
+}
+
+const mapStateToProps = ({ series, activeSerie, modal, pages }) => ({
+  series,
+  activeSerie,
+  modal,
+  pages
+});
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      onSerieClick,
+      closeModal,
+      changePage,
+    },
+    dispatch,
+  );
+}
+
+const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
+
+export default ConnectedApp;
