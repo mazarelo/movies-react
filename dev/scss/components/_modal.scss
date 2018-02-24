@@ -25,6 +25,15 @@
     max-width:500px;
     margin:0 auto;
     padding:10px;
+    
+    .banner{
+      max-height:300px;
+      width:100%;
+      img{
+        max-width:100%;
+        border-radius:4px;
+      }
+    }
 
     .chip{
       background: rgba(0,0,0,.4);
