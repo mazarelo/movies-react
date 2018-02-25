@@ -13,7 +13,7 @@ const allReducers = combineReducers({
     series: SeriesReducer,
     modal: ModalReducer,
     activeSerie: ActiveSerieReducer,
-    pages: PaginatorReducer
+    pages: PaginatorReducer,
 });
 
 export default allReducers

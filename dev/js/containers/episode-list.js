@@ -10,7 +10,7 @@ const EpisodeList = props => {
             <h4>S{episode.season}E{episode.episode} - {episode.title} 
             <div className="download-list">
               {Object.keys(episode.torrents).map((key, i) => i !== 0 ? (
-                <a href={episode.torrents[key].url}> {key} <i className="fa fa-download"></i></a>
+                <a href={episode.torrents[key].url}> {key} <i className="fa fa-magnet"></i></a>
               ): null)}
             </div>
             </h4>

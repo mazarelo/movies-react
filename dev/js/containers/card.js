@@ -9,9 +9,6 @@ const SimpleMediaCard = (props) => {
           <img src={item.images.banner}/>
         </figure>
       </div>
-      <div className="content">
-        <h3>{item.title}</h3>
-      </div>
       <div className="action-buttons">
       </div>
     </div>
