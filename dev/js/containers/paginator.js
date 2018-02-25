@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Pagination = props => {
-  console.log('PAGINATOR PROPS:', props)
   return props.items !== null ? (
     <ul className="wrapper">
       {props.items.map((page, i) => (
